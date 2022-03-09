@@ -66,6 +66,7 @@ export abstract class SefazNFe {
                 return autorizadores.RS;
             case 'SP':
                 return autorizadores.SP;
+            case 'SVAN':
             case 'MA':
             case 'PA':
                 return autorizadores.SVAN;

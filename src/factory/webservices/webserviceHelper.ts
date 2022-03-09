@@ -49,7 +49,7 @@ export abstract class WebServiceHelper {
         });
     }
 
-    public static buildSoapEnvelope(xml: string, soapMethod: string) {
+    public static buildSoapEnvelope(xml: string, soapMethod: string, raw?: boolean) {
         let soapEnvelopeObj = {
             '$': { 'xmlns:soap': 'http://www.w3.org/2003/05/soap-envelope',
                     'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
@@ -63,8 +63,18 @@ export abstract class WebServiceHelper {
                     }
                 }
             };
-
-        let soapEnvXml = XmlHelper.serializeXml(soapEnvelopeObj, 'soap:Envelope');
+                let soapEnvelopeObjRaw = {
+                    '$': {
+                        'xmlns:soap': 'http://www.w3.org/2003/05/soap-envelope',
+                        'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                        'xmlns:xsd': 'http://www.w3.org/2001/XMLSchema'
+                    },
+                    'soap:Body': {
+                        _: '[XML]'
+                    }
+                };
+    
+            let soapEnvXml = XmlHelper.serializeXml(raw? soapEnvelopeObjRaw : soapEnvelopeObj, 'soap:Envelope');
         return soapEnvXml.replace('[XML]', xml);
     }
 
@@ -81,7 +91,7 @@ export abstract class WebServiceHelper {
 
 
     private static buildSoapRequestOpt(
-        cert: any, soapParams: any, xml: string, proxy?: WebProxy) {
+        cert: any, soapParams: any, xml: string, proxy?: WebProxy, raw?: boolean) {
         const result: any = {
             url: soapParams.url,
             agentOptions: this.buildCertAgentOpt(cert),
@@ -89,7 +99,7 @@ export abstract class WebServiceHelper {
                 "Content-Type": soapParams.contentType,
                 "SOAPAction": soapParams.action
             },
-            body: this.buildSoapEnvelope(xml, soapParams.method),
+            body: this.buildSoapEnvelope(xml, soapParams.method, raw),
             family: 4 //workaround para erro de dns em versões antigas da glibc
         }
 
@@ -117,11 +127,11 @@ export abstract class WebServiceHelper {
         return certAgentOpt
     }
 
-    public static async makeSoapRequest(xml: string, cert: any, soap: any, proxy?: WebProxy) {
+    public static async makeSoapRequest(xml: string, cert: any, soap: any, proxy?: WebProxy, raw?: boolean) {
         let result = <RetornoProcessamento>{ xml_enviado: xml };
         try {
             const reqOpt: any = this.buildSoapRequestOpt(
-                cert, soap, xml, proxy
+                cert, soap, xml, proxy, raw
             )
 
             console.log('----->', reqOpt.url)

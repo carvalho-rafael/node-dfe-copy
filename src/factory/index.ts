@@ -3,5 +3,6 @@ export { RetornoProcessor } from './processor/retornoProcessor'
 export { StatusServicoProcessor } from './processor/statusServicoProcessor'
 export { EventoProcessor } from './processor/eventoProcessor'
 export { InutilizaProcessor } from './processor/inutilizaProcessor'
+export { DistDFeIntProcessor } from './processor/distDFeIntProcessor'
 
 export * from './interface';

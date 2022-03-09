@@ -8,6 +8,7 @@ export enum ServicosSefaz {
     inutilizacao = 'inutilizacao',
     protocolo = 'consultarProtocolo',
     cadastro = 'consultarCadastro',
+    distribuicao = 'distribuicaoDFe',
 }
 
 export interface RetornoProcessamentoNF {

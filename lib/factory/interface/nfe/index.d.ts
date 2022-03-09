@@ -6,7 +6,8 @@ export declare enum ServicosSefaz {
     evento = "recepcaoEvento",
     inutilizacao = "inutilizacao",
     protocolo = "consultarProtocolo",
-    cadastro = "consultarCadastro"
+    cadastro = "consultarCadastro",
+    distribuicao = "distribuicaoDFe"
 }
 export interface RetornoProcessamentoNF {
     success: boolean;
