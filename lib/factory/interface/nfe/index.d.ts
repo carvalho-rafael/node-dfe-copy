@@ -331,6 +331,14 @@ export interface InfoAdicional {
     infoComplementar: string;
     infoFisco: string;
 }
+export interface EmpresaDistribuicao {
+    cnpj: string;
+    endereco: {
+        uf: string;
+        cUf: string;
+    };
+    certificado: Certificado;
+}
 export interface Empresa {
     cnpj: string;
     razaoSocial: string;

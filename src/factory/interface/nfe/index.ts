@@ -377,6 +377,15 @@ export interface InfoAdicional {
     // ..
 }
 
+export interface EmpresaDistribuicao {
+    cnpj: string;
+    endereco: {
+      uf: string;
+      cUf: string;
+    };
+    certificado: Certificado;
+}
+
 export interface Empresa {
     cnpj: string;
     razaoSocial: string;
