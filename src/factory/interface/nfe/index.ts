@@ -14,7 +14,7 @@ export enum ServicosSefaz {
 export interface RetornoProcessamentoNF {
     success: boolean,
     error: string,
-    nfe: Object,
+    nfe: any,
     confirmada: boolean;
     envioNF: RetornoProcessamento,
     consultaProc: RetornoProcessamento,
@@ -30,7 +30,7 @@ export interface RetornoProcessamento {
     xml_recebido: string,
     status: number,
     success: boolean,
-    data: Object,
+    data: any,
     error: string
 }
 

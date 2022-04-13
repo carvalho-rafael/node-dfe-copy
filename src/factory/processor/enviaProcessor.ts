@@ -89,6 +89,12 @@ export class EnviaProcessor {
                 result.retornoContingenciaOffline.xml_gerado = xmlLote;
             } else {
                 result = await this.transmitirXml(xmlLote, doc.nfe);
+                const retEnviNFe = result.envioNF.data.retEnviNFe
+                if (retEnviNFe && retEnviNFe.cStat === '104' && retEnviNFe.protNFe.infProt.cStat === '100') {
+                    result.success = true;
+                } else {
+                    result.success = false;
+                }
             }
         } catch (ex) {
             result.success = false;

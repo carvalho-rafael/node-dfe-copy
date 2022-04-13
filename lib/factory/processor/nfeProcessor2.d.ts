@@ -15,8 +15,8 @@ export declare class NFeProcessor {
      * Metodo para realizar o processamento de documento(s) do tipo 55 ou 65 de forma sincrona
      * @param documento Array de documentos modelo 55 ou 1 documento modelo 65
      */
-    processarDocumento(documento: NFeDocumento | NFCeDocumento): Promise<RetornoProcessamentoNF>;
-    executar(documento: NFeDocumento | NFCeDocumento): Promise<RetornoProcessamentoNF>;
+    processarDocumento(documento: NFeDocumento | NFCeDocumento, assincrono?: boolean): Promise<RetornoProcessamentoNF>;
+    executar(documento: NFeDocumento | NFCeDocumento, assincrono?: boolean): Promise<RetornoProcessamentoNF>;
     inutilizarNumeracao(dados: Inutilizar): Promise<any>;
     gerarEvento(evento: Evento): Promise<any>;
     processarXmlContingencia(xml: string): Promise<any>;
