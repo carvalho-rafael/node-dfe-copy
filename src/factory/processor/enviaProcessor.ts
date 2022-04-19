@@ -1058,7 +1058,6 @@ export class EnviaProcessor {
             case '98':
             case '99':
                 if ((pis.vBC + pis.pPIS > 0) && (pis.qBCProd + pis.vAliqProd > 0)) throw 'As TAG <vBC> e <pPIS> não podem ser informadas em conjunto com as TAG <qBCProd> e <vAliqProd>'
-                if (pis.qBCProd + pis.vAliqProd <= 0) return undefined;
 
                 result = {
                     PISOutr: <schema.TNFeInfNFeDetImpostoPIS>{
@@ -1068,6 +1067,7 @@ export class EnviaProcessor {
                         vPIS: pis.vPIS
                     }
                 }
+                break;
             default:
                 result = {
                     PISOutr: <schema.TNFeInfNFeDetImpostoPIS>{
@@ -1151,7 +1151,6 @@ export class EnviaProcessor {
             case '98':
             case '99':
                 if ((cofins.vBC + cofins.pCOFINS > 0) && (cofins.qBCProd + cofins.vAliqProd > 0)) throw 'As TAG <vBC> e <pCOFINS> não podem ser informadas em conjunto com as TAG <qBCProd> e <vAliqProd>'
-                if (cofins.qBCProd + cofins.vAliqProd <= 0) return undefined;
 
                 result = {
                     COFINSOutr: <schema.TNFeInfNFeDetImpostoCOFINS>{
