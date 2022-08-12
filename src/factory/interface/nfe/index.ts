@@ -1,3 +1,4 @@
+import { TNFeInfNFeTranspTransporta } from "../../schema";
 import { WebProxy } from "../../webservices/webserviceHelper";
 
 export enum ServicosSefaz {
@@ -330,6 +331,7 @@ export interface RetTrib {
 
 export interface Transporte {
     modalidateFrete: string;
+    transporta: TNFeInfNFeTranspTransporta;
     //..
 }
 

@@ -1,3 +1,4 @@
+import { TNFeInfNFeTranspTransporta } from "../../schema";
 import { WebProxy } from "../../webservices/webserviceHelper";
 export declare enum ServicosSefaz {
     autorizacao = "autorizacao",
@@ -294,6 +295,7 @@ export interface RetTrib {
 }
 export interface Transporte {
     modalidateFrete: string;
+    transporta: TNFeInfNFeTranspTransporta;
 }
 export interface Cobranca {
     fatura: Fatura;

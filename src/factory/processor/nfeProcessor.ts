@@ -1350,7 +1350,8 @@ export class NFeProcessor {
 
     private getTransp(transp: Transporte) {
         return <schema.TNFeInfNFeTransp>{
-            modFrete: transp.modalidateFrete
+            modFrete: transp.modalidateFrete,
+            transporta: transp.transporta,
             /**
              * transporta: TNFeInfNFeTranspTransporta;
                 retTransp: TNFeInfNFeTranspRetTransp;

@@ -1687,13 +1687,14 @@ export declare enum TNFeInfNFeTranspModFrete {
     Item9 = "9"
 }
 export interface TNFeInfNFeTranspTransporta {
+    CNPJ: string;
     item: string;
     itemElementName: ItemChoiceType6;
     xNome: string;
-    ie: string;
+    IE: string;
     xEnder: string;
     xMun: string;
-    uf: TUf;
+    UF: TUf;
     ufSpecified: boolean;
 }
 export declare enum ItemChoiceType6 {

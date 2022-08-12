@@ -2149,15 +2149,15 @@ export enum TNFeInfNFeTranspModFrete {
 
 //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.portalfiscal.inf.br/nfe")]
 export interface TNFeInfNFeTranspTransporta {
-    //CNPJ
+    CNPJ: string;
     //CPF
     item: string;
     itemElementName: ItemChoiceType6;
     xNome: string;
-    ie: string;
+    IE: string;
     xEnder: string;
     xMun: string;
-    uf: TUf;
+    UF: TUf;
     ufSpecified: boolean;
 }
 
