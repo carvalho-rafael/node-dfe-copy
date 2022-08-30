@@ -95,9 +95,9 @@ export class EnviaProcessor {
               );
             });
             const validatorResponse = await a;
-            if (!a.valid) {
+            if (!validatorResponse.valid) {
                 result.success = false
-                result.error = validatorResponse?.messages;
+                result.xmlErrors = validatorResponse?.messages;
                 return result;
             }
         

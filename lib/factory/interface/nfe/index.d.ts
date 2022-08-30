@@ -13,6 +13,7 @@ export declare enum ServicosSefaz {
 export interface RetornoProcessamentoNF {
     success: boolean;
     error: string;
+    xmlErrors: string[];
     nfe: any;
     confirmada: boolean;
     envioNF: RetornoProcessamento;
