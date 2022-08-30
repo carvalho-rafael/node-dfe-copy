@@ -35,6 +35,7 @@
   "homepage": "https://github.com/lealhugui/node-dfe#readme",
   "dependencies": {
     "@types/node": "^12.11.1",
+    "@types/xsd-schema-validator": "^0.5.4",
     "cxsd": "^0.1.1",
     "debug": "^4.1.0",
     "lodash": "^4.17.11",
@@ -42,11 +43,12 @@
     "request": "^2.88.0",
     "sha1": "^1.1.1",
     "xml-crypto": "^1.2.0",
-    "xml2js": "0.4.19"
+    "xml2js": "0.4.19",
+    "xsd-schema-validator": "^0.7.0"
   },
   "devDependencies": {
-    "@types/xml2js": "0.4.3",
     "@types/request": "^2.48.1",
+    "@types/xml2js": "0.4.3",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.1.6"
   }
