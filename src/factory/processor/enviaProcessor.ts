@@ -12,7 +12,6 @@ import { SefazNFCe } from '../webservices/sefazNfce';
 import { SefazNFe } from '../webservices/sefazNfe';
 import * as fs from 'fs';
 import * as path from 'path';
-import { validateXML } from 'xsd-schema-validator';
 
 const sha1 = require('sha1');
 
@@ -82,25 +81,7 @@ export class EnviaProcessor {
                 doc.nfe.infNFeSupl = appendQRCode.qrCode;
             }
 
-            let xmlLote = this.gerarXmlLote(xmlAssinado, assincrono);
-
-            // validate xml
-            const a: any = new Promise(resolve => {
-              validateXML(
-                '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + xmlAssinado,
-                path.resolve(__dirname, '..', 'validator', 'nfe_v4.00.xsd'),
-                (_err: any, result: any) => {
-                  resolve(result);
-                },
-              );
-            });
-            const validatorResponse = await a;
-            if (!validatorResponse.valid) {
-                result.success = false
-                result.xmlErrors = validatorResponse?.messages;
-                return result;
-            }
-        
+            let xmlLote = this.gerarXmlLote(xmlAssinado, assincrono);        
 
             if (documento.docFiscal.modelo == '65' && documento.docFiscal.isContingenciaOffline) {
                 result.retornoContingenciaOffline = <RetornoContingenciaOffline>{};
