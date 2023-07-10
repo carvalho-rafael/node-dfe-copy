@@ -1,9 +1,9 @@
 export function getContentType(uf: string): string {
     switch (uf) {
         case 'GO':
-            return "application/soap+xml";
+            return "application/soap+xml;charset=utf-8";
         default:
-            return "text/xml;charset=utf-8";
+            return "application/soap+xml;charset=utf-8";
     }
 }
 
