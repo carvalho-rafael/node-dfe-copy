@@ -147,9 +147,9 @@ export abstract class WebServiceHelper {
                 let retorno = XmlHelper.deserializeXml(result.xml_recebido, {explicitArray: false});
                 console.log('retorno:', JSON.stringify(retorno))
                 if (retorno) {
-                    if(Object(retorno)['S:Envelope']['S:Body']['nfeDistDFeInteresseResponse']) {
-                        result.data = Object(retorno)['S:Envelope']['S:Body']['nfeDistDFeInteresseResponse']['nfeDistDFeInteresseResult'];
-                    } else if (Object(retorno)['S:Envelope']['S:Body']['ns2:nfeResultMsg']) {
+                    if(Object(retorno)['soap:Envelope']?.['soap:Body']?.['nfeDistDFeInteresseResponse']) {
+                        result.data = Object(retorno)['soap:Envelope']['soap:Body']['nfeDistDFeInteresseResponse']['nfeDistDFeInteresseResult'];
+                    } else if (Object(retorno)['S:Envelope']?.['S:Body']?.['ns2:nfeResultMsg']) {
                         result.data = Object(retorno)['S:Envelope']['S:Body']['ns2:nfeResultMsg'];
                     } else {
                         //result.data = retorno;

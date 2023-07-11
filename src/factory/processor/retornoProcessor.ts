@@ -55,7 +55,7 @@ export class RetornoProcessor {
                         data: !retornoConsulta ? false : !!retornoConsulta.data
                     }), 'retornoConsulta.exists')
 
-                    Utils.log(Utils.jsonOneLevel(retornoConsulta), 'retornoConsulta.data');
+                    Utils.log(JSON.stringify(retornoConsulta), 'retornoConsulta.data');
                 } catch (e) {
                     Utils.log('retornoProcessor.envir: ja deu erro pra logar.......', 'retornoConsulta')
                 }

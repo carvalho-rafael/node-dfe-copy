@@ -235,7 +235,7 @@ export class NFeProcessor {
                             data: !retornoConsulta ? false : !!retornoConsulta.data
                         }), 'retornoConsulta.exists')
         
-                        log(jsonOneLevel(retornoConsulta), 'retornoConsulta.data');
+                        log(JSON.stringify(retornoConsulta), 'retornoConsulta.data');
                     } catch(e) {
                         log('ja deu erro pra logar.......', 'retornoConsulta')
                     }
