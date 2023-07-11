@@ -145,14 +145,15 @@ export abstract class WebServiceHelper {
 
                 //let retorno = (require('util').inspect(XmlHelper.deserializeXml(res.data), false, null));
                 let retorno = XmlHelper.deserializeXml(result.xml_recebido, {explicitArray: false});
+                console.log('retorno:', JSON.stringify(retorno))
                 if (retorno) {
-                    if(Object(retorno)['soap12:Envelope']['soap12:Body']['nfeDistDFeInteresseResponse']) {
-                        result.data = Object(retorno)['soap12:Envelope']['soap12:Body']['nfeDistDFeInteresseResponse']['nfeDistDFeInteresseResult'];
-                    } else if (Object(retorno)['soap12:Envelope']['soap12:Body']['ns2:nfeResultMsg']) {
-                        result.data = Object(retorno)['soap12:Envelope']['soap12:Body']['ns2:nfeResultMsg'];
+                    if(Object(retorno)['S:Envelope']['S:Body']['nfeDistDFeInteresseResponse']) {
+                        result.data = Object(retorno)['S:Envelope']['S:Body']['nfeDistDFeInteresseResponse']['nfeDistDFeInteresseResult'];
+                    } else if (Object(retorno)['S:Envelope']['S:Body']['ns2:nfeResultMsg']) {
+                        result.data = Object(retorno)['S:Envelope']['S:Body']['ns2:nfeResultMsg'];
                     } else {
                         //result.data = retorno;
-                        result.data = Object(retorno)['soap12:Envelope'] != undefined ? result.data = Object(retorno)['soap12:Envelope']['soap12:Body']['nfeResultMsg'] : result.data = Object(retorno)['env:Envelope']['env:Body']['nfeResultMsg'];
+                        result.data = Object(retorno)['S:Envelope'] != undefined ? result.data = Object(retorno)['S:Envelope']['S:Body']['nfeResultMsg'] : result.data = Object(retorno)['env:Envelope']['env:Body']['nfeResultMsg'];
                         //console.log(result.data)
                     }    
                 }
